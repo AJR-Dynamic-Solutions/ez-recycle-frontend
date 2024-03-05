@@ -54,3 +54,13 @@ a {
   margin-top: 20vh;
   font-weight: bold;
 }
+
+.recycle-card {
+  width: 30rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.recycle-cards {
+  width: 20rem;
+}
