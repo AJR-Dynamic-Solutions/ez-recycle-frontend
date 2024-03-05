@@ -5,6 +5,7 @@ footer {
   width: 100%;
   text-align: center;
   padding: 5px;
+  background-color: hsl(135, 2%, 53%);
 }
 
 .nav {
@@ -13,9 +14,43 @@ footer {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  background-color: hsl(135, 2%, 53%);
 }
-
 
 a {
   color: black !important;
+}
+
+.not-found-background {
+  display: flex;
+  justify-content: center;
+}
+
+.not-found-text {
+  text-align: center;
+  border: 3px solid;
+  margin-top: 20vh;
+  padding: 15px;
+}
+
+.home-background {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-box {
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  height: 50vh;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20vh;
+  font-weight: bold;
 }
