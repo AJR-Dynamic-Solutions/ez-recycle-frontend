@@ -19,6 +19,10 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(mockUsers[0]);
   const [recycles, setRecycles] = useState(mockRecycle);
 
+  const createRecycle = (recycle) => {
+    console.log(recycle);
+  };
+
   return (
     <>
       <Header currentUser={currentUser} />
@@ -47,7 +51,12 @@ const App = () => {
         />
         <Route
           path="/recyclenew"
-          element={<RecycleNew currentUser={currentUser} />}
+          element={
+            <RecycleNew
+              currentUser={currentUser}
+              createRecycle={createRecycle}
+            />
+          }
         />
         <Route
           path="/recycleedit/:id"
