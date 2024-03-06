@@ -30,7 +30,17 @@ const App = () => {
           path="/recycleindex"
           element={<RecycleIndex recycles={recycles} />}
         />
-        <Route path="/myrecycles" element={<RecycleProtectedIndex />} />
+        {currentUser && (
+          <Route
+            path="/myrecycles"
+            element={
+              <RecycleProtectedIndex
+                recycles={recycles}
+                currentUser={currentUser}
+              />
+            }
+          />
+        )}
         <Route
           path="/recycleshow/:id"
           element={<RecycleShow recycles={recycles} />}
