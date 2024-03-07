@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
 import Header from "../components/Header";
+import { toBeInTheDocument } from "@testing-library/jest-dom/matchers";
+
+expect.extend({ toBeInTheDocument });
 
 describe("<Header />", () => {
   it("renders without crashing", () => {
@@ -9,28 +11,25 @@ describe("<Header />", () => {
       <BrowserRouter>
         <Header />
       </BrowserRouter>
-    )
-  })
-})
+    );
+  });
 
-it("has clickable links", () => {
-  render(
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>
-  )
-  userEvent.click(screen.getByText("Home"))
-  expect(screen.getByText("Home")).toBeInTheDocument()
+  it("has clickable links", () => {
+    render(
+      <BrowserRouter>
+        <Header currentUser={true} />
+      </BrowserRouter>
+    );
 
-  userEvent.click(screen.getByText("View Current Items For Sale"))
-  expect(screen.getByText("View Current Items For Sale")).toBeInTheDocument()
-
-  userEvent.click(screen.getByText("My Listings"))
-  expect(screen.getByText("My Listings")).toBeInTheDocument()
-
-  userEvent.click(screen.getByText("Add Your Item For Sale"))
-  expect(screen.getByText("Add Your Item For Sale")).toBeInTheDocument()
-
-  userEvent.click(screen.getByText("Log Out"))
-  expect(screen.getByText("Log Out")).toBeInTheDocument()
-})
+    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /view current items for sale/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /My Listings/i })
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /add your item for sale/i }))
+      .toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /log out/i })).toBeInTheDocument();
+  });
+});
