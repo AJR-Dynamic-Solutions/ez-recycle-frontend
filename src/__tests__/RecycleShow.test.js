@@ -18,16 +18,10 @@ describe("<RecycleShow />", () => {
     );
 
     expect(screen.getByText("$18")).toBeInTheDocument();
-    expect(
-      screen.getByText(/Assorted Weights.*San Diego.*California/i)
-    ).toBeInTheDocument();
-
-    const contactElements = screen.getAllByText(
-      (content, element) =>
-        /allnatty@gmail\.com\s*42069696969/i.test(content) ||
-        (element.textContent &&
-          /allnatty@gmail\.com\s*42069696969/i.test(element.textContent))
-    );
-    expect(contactElements.length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/Assorted Weights/i)).toBeInTheDocument();
+    expect(screen.getByText(/San Diego/i)).toBeInTheDocument();
+    expect(screen.getByText(/California/i)).toBeInTheDocument();
+    expect(screen.getByText("Email: allnatty@gmail.com")).toBeInTheDocument();
+    expect(screen.getByText("WhatsApp User: 42069696969")).toBeInTheDocument();
   });
 });

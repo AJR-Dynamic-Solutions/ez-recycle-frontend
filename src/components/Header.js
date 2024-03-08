@@ -8,7 +8,7 @@ const Header = ({ currentUser, logout }) => {
     logout();
     navigate("/");
   };
-  console.log(currentUser);
+
   return (
     <>
       <Nav>
