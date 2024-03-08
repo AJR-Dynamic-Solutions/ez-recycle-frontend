@@ -24,13 +24,6 @@ const App = () => {
     console.log(recycle);
   };
 
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("user");
-  //   if (loggedInUser) {
-  //     setCurrentUser(JSON.parse(loggedInUser));
-  //   }
-  // }, []);
-
   const signUp = (userInfo) => {
     fetch("http://localhost:3000/signup", {
       body: JSON.stringify(userInfo),
