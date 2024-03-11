@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   CardImg,
@@ -9,7 +9,16 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
-const RecycleProtectedIndex = ({ recycles, currentUser }) => {
+const RecycleProtectedIndex = ({ recycles, currentUser, deleteRecycle }) => {
+  //Log current user's ID  when the component mounts
+  useEffect(() => {
+  }, [currentUser]);
+
+  // Log recycles prop when the component mounts
+  useEffect(() => {
+  }, [recycles]);
+
+  // Filter the listings based on the current user's ID
   const myRecycles = recycles?.filter(
     (recycle) => recycle.user_id === currentUser.id
   );
@@ -44,7 +53,12 @@ const RecycleProtectedIndex = ({ recycles, currentUser }) => {
                   <Button className="recycle-button">More Details</Button>
                 </NavLink>
                 <Button className="recycle-button">Edit Listing </Button>
-                <Button className="recycle-button">Delete Listing</Button>
+                <Button
+                  onClick={() => deleteRecycle(recycle.id)}
+                  className="recycle-button"
+                >
+                  Delete Listing
+                </Button>
               </CardBody>
             </Card>
           );
