@@ -28,7 +28,7 @@ let mockRecycles = [
     user_id: 1,
   },
   {
-    id: 2,
+    id: 3,
     item: "Microwave",
     category: "Appliances",
     description: "Black 2",
@@ -38,7 +38,7 @@ let mockRecycles = [
     email: "Mrpresident1985@yahoo.com",
     whatsapp_user: "9876543211",
     image: "https://www.hearthsidedistributors.com/1895_BACsm.jpg",
-    user_id: 2,
+    user_id: 1,
   },
 ];
 

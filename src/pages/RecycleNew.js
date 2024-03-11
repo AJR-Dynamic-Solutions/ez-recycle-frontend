@@ -31,7 +31,7 @@ const RecycleNew = ({ createRecycle, currentUser }) => {
       {currentUser?.id && (
         <div className="form-container">
           <h1>List Your Items</h1>
-          <Form className="form">
+          <Form className="form" action="/recycles" method="POST">
             <FormGroup className="form-group item">
               <Label for="item">Item: </Label>
               <Input
@@ -98,7 +98,7 @@ const RecycleNew = ({ createRecycle, currentUser }) => {
             <FormGroup className="form-group whatsapp_user">
               <Label for="whatsapp_user">WhatsApp Username: </Label>
               <Input
-                type="whatsapp_user"
+                type="text"
                 name="whatsapp_user"
                 onChange={handleChange}
                 value={myRecycle.whatsapp_user}

@@ -3,8 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
-import mockUsers from "./mockUsers";
-import mockRecycle from "./mockRecycle";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -16,13 +14,47 @@ import NotFound from "./pages/NotFound";
 import RecycleNew from "./pages/RecycleNew";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(mockUsers[0]);
-  const [recycles, setRecycles] = useState(mockRecycle);
-  console.log(currentUser);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [recycles, setRecycles] = useState([]);
   console.log(recycles);
-  const createRecycle = (recycle) => {
-    console.log(recycle);
+
+  useEffect(() => {
+    readRecycle();
+  }, []);
+
+  const readRecycle = () => {
+    fetch("http://localhost:3000/recycles")
+      .then((response) => response.json())
+      .then((data) => setRecycles(data))
+      .catch((errors) => console.log("Recycle read errors:", errors));
   };
+
+  const createRecycle = (recycleInfo) => {
+    fetch("http://localhost:3000/recycles", {
+      body: JSON.stringify(recycleInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token"), // Include authorization token
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((newRecycleData) => {
+        // Update state to include the newly created listing
+        setRecycles([...recycles, newRecycleData]);
+      })
+      .catch((error) => console.log("Create new listing errors: ", error));
+  };
+
+  const updateRecycle = (recycle, id) => {};
+
+  const deleteRecycle = (id) => {};
 
   const signUp = (userInfo) => {
     fetch("http://localhost:3000/signup", {
@@ -104,6 +136,7 @@ const App = () => {
               <RecycleProtectedIndex
                 recycles={recycles}
                 currentUser={currentUser}
+                deleteRecycle={deleteRecycle}
               />
             }
           />
@@ -124,7 +157,11 @@ const App = () => {
         <Route
           path="/recycleedit/:id"
           element={
-            <RecycleEdit currentUser={currentUser} recycles={recycles} />
+            <RecycleEdit
+              currentUser={currentUser}
+              recycles={recycles}
+              updateRecycle={updateRecycle}
+            />
           }
         />
         <Route path="*" element={<NotFound />} />

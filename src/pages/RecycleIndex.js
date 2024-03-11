@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 const RecycleIndex = ({ recycles }) => {
   return (
     <div className="recycles-body">
-      <h1>Recent Listings</h1>
+      <h1>For Sale</h1>
       <div className="flex-recycles">
         {recycles?.map((recycle, index) => {
           return (
