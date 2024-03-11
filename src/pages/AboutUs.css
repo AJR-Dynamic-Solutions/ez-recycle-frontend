@@ -1,0 +1,22 @@
+.about-us-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us-content {
+  max-width: 900px; 
+  margin: 0 auto; 
+}
+
+.team-member {
+  margin-top: 10px;
+}
+
+.team-member-image {
+  width: 175px;
+  height: 175px; 
+  border-radius: 50%; 
+  margin-bottom: 10px;
+}

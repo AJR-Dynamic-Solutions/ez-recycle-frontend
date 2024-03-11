@@ -14,6 +14,7 @@ import RecycleShow from "./pages/RecycleShow";
 import RecycleEdit from "./pages/RecycleEdit";
 import NotFound from "./pages/NotFound";
 import RecycleNew from "./pages/RecycleNew";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(mockUsers[0]);
@@ -93,6 +94,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn signIn={signIn} />} />
         <Route path="/signup" element={<SignUp signUp={signUp} />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route
           path="/recycleindex"
           element={<RecycleIndex recycles={recycles} />}

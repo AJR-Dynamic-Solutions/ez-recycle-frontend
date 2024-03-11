@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# EZ-Recycle Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Welcome to the EZ-Recycle frontend repository! This frontend system powers the seamless functionality of the EZ-Recycle platform, enabling users to interact with the marketplace, manage their items, and contribute to a greener planet. 
 
-### `yarn start`
+### Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **RESTful API**: Provides endpoints for user authentication, item management, and marketplace functionality.
+- **Database Integration**: Utilizes a relational database to store user information, item listings, and other essential data.
+- **Security**: Implements robust security measures to protect user data and ensure secure transactions.
+- **Scalability**: Designed for scalability to accommodate a growing user base and increasing data volume.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `yarn test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To set up the EZ-Recycle frontend on your local machine, follow these steps:
 
-### `yarn build`
+1. **Clone the Repository**: Navigate to the `backend` directory and follow the README instructions to set up the Rails backend.
+2. **Set Up Backend**: Navigate to the `backend` directory and follow the README instructions to set up the Rails backend.
+3. **Set Up Frontend**: `git clone https://github.com/AJR-Dynamic-Solutions/ez-recycle-frontend`
+4. **Start the Servers**: Start both the Rails backend and React frontend servers.
+5. **Verify Setup**: Access `http://localhost:3000` in your browser to use the application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js
+- npm
+- Ruby on Rails
+- Database PostgreSQL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## API Documentation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The EZ-Recycle backend exposes a RESTful API with endpoints for various functionalities. Refer to the API documentation for detailed information on available endpoints, request formats, and response structures.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Link to API Documentation]()
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+The backend provides endpoints for the following functionalities:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **User Authentication**: Register, log in, and manage user sessions.
+- **Item Management**: Create, update, and delete item listings.
+- **Marketplace Operations**: Browse available items, search for specific items, and interact with listings.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Refer to the API documentation for detailed usage instructions and examples.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Support
 
-### Analyzing the Bundle Size
+For any questions, issues, or assistance with the EZ-Recycle frontend, please reach out to our support team:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Issue Tracker**: [Link to issue tracker](https://github.com/AJR-Dynamic-Solutions/ez-recycle-frontend/issues)
+- **Email**: ajr_dynamic_solutions@yahoo.com 
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Roadmap
 
-### Advanced Configuration
+Here are some planned enhancements and features for the EZ-Recycle frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Improved styling  and responsive design for users.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `yarn build` fails to minify
+We welcome contributions from the community to improve and enhance the EZ-Recycle backend. If you're interested in contributing, please follow these guidelines:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository and clone it locally.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes, ensuring adherence to coding standards and test coverage.
+4. Submit a pull request with a clear description of your changes and their purpose.
+
+---
+
+## Authors and Acknowledgment
+
+The EZ-Recycle frontend is developed and maintained by our dedicated team of developers at AJR Dynamic Solutions. We appreciate the contributions and support from the open-source community.
+
+---
+
+## License
+
+The EZ-Recycle frontend is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the LICENSE file for more details.
+
+---
+
+## Project Status
+
+The development of the EZ-Recycle frontend is active and ongoing. We're committed to continuously improving the platform and delivering new features to our users.
+
+---
