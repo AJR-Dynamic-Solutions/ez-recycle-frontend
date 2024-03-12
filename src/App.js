@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ import AboutUs from "./pages/AboutUs";
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [recycles, setRecycles] = useState([]);
-  console.log(recycles);
+  const navigate = useNavigate()
 
   useEffect(() => {
     readRecycle();
@@ -53,9 +53,40 @@ const App = () => {
       .catch((error) => console.log("Create new listing errors: ", error));
   };
 
-  const updateRecycle = (recycle, id) => {};
-
-  const deleteRecycle = (id) => {};
+  const updateRecycle = (updatedRecycle, id) => {
+  fetch(`http://localhost:3000/recycles/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedRecycle),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(() => {
+      readRecycle()
+    })
+    .catch((error) => console.log("Update recycle error:", error));
+    navigate("/myrecycles")
+};
+ 
+  const deleteRecycle = (id) => {
+   console.log(id)
+   fetch(`http://localhost:3000/recycles/${id}`, {
+     method: "DELETE",
+     headers: {
+       "Content-Type": "application/json",
+     },
+   })
+     .then((response) => response.json())
+     .then(() => readRecycle())
+     .catch((errors) => console.log("Recycle delete errors:", errors));
+   navigate("/recycleindex");
+ };
 
   const signUp = (userInfo) => {
     fetch("http://localhost:3000/signup", {
@@ -130,6 +161,10 @@ const App = () => {
         <Route
           path="/recycleindex"
           element={<RecycleIndex recycles={recycles} />}
+        />
+        <Route
+          path="/recycleshow/:id"
+          element={<RecycleShow recycle={recycles} deleteRecycle={deleteRecycle} />}
         />
         {currentUser && (
           <Route

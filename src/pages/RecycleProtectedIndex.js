@@ -52,7 +52,9 @@ const RecycleProtectedIndex = ({ recycles, currentUser, deleteRecycle }) => {
                 <NavLink to={`/recycleshow/${recycle.id}`} className="nav-link">
                   <Button className="recycle-button">More Details</Button>
                 </NavLink>
-                <Button className="recycle-button">Edit Listing </Button>
+                <NavLink to={`/recycleedit/${recycle.id}`}>
+                  <Button className="edit-listing-button">Edit Listing</Button>
+                </NavLink>
                 <Button
                   onClick={() => deleteRecycle(recycle.id)}
                   className="recycle-button"
@@ -69,3 +71,4 @@ const RecycleProtectedIndex = ({ recycles, currentUser, deleteRecycle }) => {
 };
 
 export default RecycleProtectedIndex;
+
