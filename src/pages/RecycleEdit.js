@@ -5,13 +5,10 @@ import {
   FormGroup,
   Label,
   Input,
-  FormFeedback,
-  FormText,
 } from "reactstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-const RecycleEdit = ({ currentUser, recycles, editRecycle }) => {
-  const navigate = useNavigate();
+const RecycleEdit = ({ currentUser, recycles, updateRecycle }) => {
   let { id } = useParams();
   const recycle = recycles?.find((recycle) => recycle.id === +id);
   const [myRecycle, setMyRecycle] = useState({
@@ -32,8 +29,7 @@ const RecycleEdit = ({ currentUser, recycles, editRecycle }) => {
   };
 
   const handleSubmit = () => {
-    editRecycle(myRecycle, recycle.id);
-    navigate("/myrecycles");
+    updateRecycle(myRecycle, currentUser.id);
   };
 
   return (
